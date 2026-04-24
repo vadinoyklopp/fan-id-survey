@@ -277,9 +277,9 @@ elif 2 <= st.session_state.step <= 6:
         st.divider()
         
         with st.form(f"conjoint_form_{pair_index}"):
-            choice = radio_one("1. На какой матч вы с большей вероятностью пойдете?", ["Сценарий А", "Сценарий Б"], key="c_choice")
-            rating_a = radio_one("2. Оцените, с какой вероятностью вы бы пошли на Сценарий А? (Где 1 - точно не пойду, 7 - точно пойду)", [1, 2, 3, 4, 5, 6, 7], key="c_ra", horizontal=True, hint="")
-            rating_b = radio_one("3. Оцените, с какой вероятностью вы бы пошли на Сценарий Б? (Где 1 - точно не пойду, 7 - точно пойду)", [1, 2, 3, 4, 5, 6, 7], key="c_rb", horizontal=True, hint="")
+            choice = radio_one("1. На какой матч вы с большей вероятностью пойдете?", ["Сценарий А", "Сценарий Б"], key=f"c_choice_{pair_index}")
+            rating_a = radio_one("2. Оцените, с какой вероятностью вы бы пошли на Сценарий А? (Где 1 - точно не пойду, 7 - точно пойду)", [1, 2, 3, 4, 5, 6, 7], key=f"c_ra_{pair_index}", horizontal=True, hint="")
+            rating_b = radio_one("3. Оцените, с какой вероятностью вы бы пошли на Сценарий Б? (Где 1 - точно не пойду, 7 - точно пойду)", [1, 2, 3, 4, 5, 6, 7], key=f"c_rb_{pair_index}", horizontal=True, hint="")
             
             if st.form_submit_button("Завершить опрос" if pair_index == 4 else "Следующий сценарий"):
                 if not choice or not rating_a or not rating_b:
